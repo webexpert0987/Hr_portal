@@ -33,7 +33,7 @@ const Dashboard = () => {
     ];
     const holidaysList = ['2024-12-25', '2024-12-31'];
     const leaveList = [{ name: 'John Doe', date: '2024-12-04' }];
-    const projectsList = [{ name: 'Project 1' }, { name: 'Project 2' }];
+    const projectsList = [{ name: 'PCP Luke' }, { name: 'Oxy Plants' }];
 
     // Sort teamData by birthday and anniversary
     setTeamData(team.sort((a, b) => new Date(a.birthday) - new Date(b.birthday)));
@@ -85,7 +85,18 @@ const Dashboard = () => {
       {/* Team Member Birthdays and Anniversaries */}
       <Grid item xs={12} sm={6} md={4}>
         <Paper elevation={3} style={{ padding: '20px', backgroundColor: 'white' }}>
-          <Typography variant="h5" gutterBottom style={{ backgroundColor: '#41c0b5', padding: '10px', color: '#2e3b4e' }}>
+          <Typography
+            variant="h6"
+            gutterBottom
+            style={{
+              backgroundColor: '#41c0b5',
+              padding: '10px',
+              color: '#2e3b4e',
+              fontWeight: 'bold',
+              fontSize: '1.1rem',
+              fontFamily: 'Roboto, sans-serif',
+            }}
+          >
             Birthdays & Anniversaries
           </Typography>
           <ul style={{ listStyleType: 'none', paddingLeft: '0', color: '#2e3b4e' }}>
@@ -116,7 +127,18 @@ const Dashboard = () => {
       {/* Holidays */}
       <Grid item xs={12} sm={6} md={4}>
         <Paper elevation={3} style={{ padding: '20px', backgroundColor: 'white' }}>
-          <Typography variant="h5" gutterBottom style={{ backgroundColor: '#f69f0b', padding: '10px', color: '#2e3b4e' }}>
+          <Typography
+            variant="h6"
+            gutterBottom
+            style={{
+              backgroundColor: '#f69f0b',
+              padding: '10px',
+              color: '#2e3b4e',
+              fontWeight: 'bold',
+              fontSize: '1.1rem',
+              fontFamily: 'Roboto, sans-serif',
+            }}
+          >
             Upcoming Holidays
           </Typography>
           <ul style={{ listStyleType: 'none', paddingLeft: '0', color: '#2e3b4e' }}>
@@ -132,7 +154,18 @@ const Dashboard = () => {
       {/* Who is on Leave Today */}
       <Grid item xs={12} sm={6} md={4}>
         <Paper elevation={3} style={{ padding: '20px', backgroundColor: 'white' }}>
-          <Typography variant="h5" gutterBottom style={{ backgroundColor: '#eef0f4', padding: '10px', color: '#2e3b4e' }}>
+          <Typography
+            variant="h6"
+            gutterBottom
+            style={{
+              backgroundColor: '#eef0f4',
+              padding: '10px',
+              color: '#2e3b4e',
+              fontWeight: 'bold',
+              fontSize: '1.1rem',
+              fontFamily: 'Roboto, sans-serif',
+            }}
+          >
             Who is on Leave Today
           </Typography>
           <ul style={{ listStyleType: 'none', paddingLeft: '0', color: '#2e3b4e' }}>
@@ -148,7 +181,18 @@ const Dashboard = () => {
       {/* Ongoing Projects */}
       <Grid item xs={12} sm={6} md={4}>
         <Paper elevation={3} style={{ padding: '20px', backgroundColor: 'white' }}>
-          <Typography variant="h5" gutterBottom style={{ backgroundColor: '#f8db85', padding: '10px', color: '#2e3b4e' }}>
+          <Typography
+            variant="h6"
+            gutterBottom
+            style={{
+              backgroundColor: '#f8db85',
+              padding: '10px',
+              color: '#2e3b4e',
+              fontWeight: 'bold',
+              fontSize: '1.1rem',
+              fontFamily: 'Roboto, sans-serif',
+            }}
+          >
             Ongoing Projects
           </Typography>
           <ul style={{ listStyleType: 'none', paddingLeft: '0', color: '#2e3b4e' }}>
@@ -164,59 +208,79 @@ const Dashboard = () => {
       {/* Billable Hours */}
       <Grid item xs={12} sm={6} md={4}>
         <Paper elevation={3} style={{ padding: '20px', backgroundColor: 'white' }}>
-          <Typography variant="h5" gutterBottom style={{ backgroundColor: '#2b352e', padding: '10px', color: '#fff' }}>
+          <Typography
+            variant="h6"
+            gutterBottom
+            style={{
+              backgroundColor: '#2b352e',
+              padding: '10px',
+              color: '#fff',
+              fontWeight: 'bold',
+              fontSize: '1.1rem',
+              fontFamily: 'Roboto, sans-serif',
+            }}
+          >
             Billable Hours This Week
-          </Typography>
-          <Typography variant="body1" style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#2e3b4e' }}>
-            {billableHours} hours
           </Typography>
           <CircularProgress
             variant="determinate"
             value={(billableHours / totalBillableHours) * 100}
             size={120}
             thickness={4}
-            style={{ marginTop: '20px', color: '#81C784' }} // Light Green for circular progress
+            style={{ color: '#81C784' }}
           />
+          <Typography variant="h6" align="center" style={{ marginTop: '10px' }}>
+            {billableHours} / {totalBillableHours} Hours
+          </Typography>
         </Paper>
       </Grid>
 
       {/* Notifications Feed */}
       <Grid item xs={12} sm={6} md={4}>
         <Paper elevation={3} style={{ padding: '20px', backgroundColor: 'white' }}>
-          <Typography variant="h5" gutterBottom style={{ backgroundColor: '#f69f0b', padding: '10px', color: '#2e3b4e' }}>
+          <Typography
+            variant="h6"
+            gutterBottom
+            style={{
+              backgroundColor: '#f69f0b',
+              padding: '10px',
+              color: '#2e3b4e',
+              fontWeight: 'bold',
+              fontSize: '1.1rem',
+              fontFamily: 'Roboto, sans-serif',
+            }}
+          >
             Feed
           </Typography>
           <ul style={{ listStyleType: 'none', paddingLeft: '0', color: '#2e3b4e' }}>
             {notifications.map((notification, idx) => (
               <li key={idx} style={{ marginBottom: '10px' }}>
-                <Typography variant="body1">
-                  {notification.message} <span style={{ fontSize: '0.8rem', color: '#888' }}>({notification.time})</span>
-                </Typography>
+                {notification.message} <br />
+                <span style={{ fontSize: '0.8rem', color: '#757575' }}>{notification.time}</span>
               </li>
             ))}
           </ul>
         </Paper>
       </Grid>
 
-      {/* Attendance Chart */}
-      <Grid item xs={12}>
+      {/* Monthly Attendance */}
+      <Grid item xs={12} sm={6} md={4}>
         <Paper elevation={3} style={{ padding: '20px', backgroundColor: 'white' }}>
-          <Typography variant="h5" gutterBottom style={{ backgroundColor: '#f69f0b', padding: '10px', color: '#2e3b4e' }}>
+          <Typography
+            variant="h6"
+            gutterBottom
+            style={{
+              backgroundColor: '#f69f0b',
+              padding: '10px',
+              color: '#2e3b4e',
+              fontWeight: 'bold',
+              fontSize: '1.1rem',
+              fontFamily: 'Roboto, sans-serif',
+            }}
+          >
             Monthly Attendance
           </Typography>
-          <div style={{ width: '90%', height: '250px', margin: '0 auto' }}>
-            <Line data={attendanceChartData} options={{
-              responsive: true,
-              maintainAspectRatio: false,
-              scales: {
-                y: {
-                  min: 0,
-                  max: 1,
-                  ticks: { stepSize: 1 },
-                },
-              },
-            }} />
-          </div>
+          <Line data={attendanceChartData} />
         </Paper>
       </Grid>
     </Grid>
